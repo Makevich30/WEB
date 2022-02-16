@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, render_template
 from flask import Flask
 from flask import url_for
 
@@ -141,6 +141,11 @@ def form_sample():
         print(request.form.get('profession6', ''))
         print(request.form.get('profession7', ''))
         return "Форма отправлена"
+
+
+@app.route("/choice/<planet>")
+def choice(planet):
+    return render_template('variants.html', planet=planet)
 
 
 if __name__ == '__main__':
